@@ -19,6 +19,21 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Computer\ComputerSystem.cs">
+      <Link>Demo\Computer\ComputerSystem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Computer\KeyboardComponentSystem.cs">
+      <Link>Demo\Computer\KeyboardComponentSystem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Computer\MonitorComponentSystem.cs">
+      <Link>Demo\Computer\MonitorComponentSystem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Computer\MouseComponentSystem.cs">
+      <Link>Demo\Computer\MouseComponentSystem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Computer\PCCaseComponentSystem.cs">
+      <Link>Demo\Computer\PCCaseComponentSystem.cs</Link>
+    </Compile>
     <Compile Include="..\..\Unity\Codes\Hotfix\Demo\Move\MoveComponentSystem.cs">
       <Link>Demo\Move\MoveComponentSystem.cs</Link>
     </Compile>

@@ -26,6 +26,26 @@
       <Link>Core\%(RecursiveDir)%(FileName)%(Extension)</Link>
     </Compile>
 
+    <Compile Include="..\..\Unity\Codes\Model\Demo\Computer\Computer.cs">
+      <Link>Demo\Computer\Computer.cs</Link>
+    </Compile>
+
+    <Compile Include="..\..\Unity\Codes\Model\Demo\Computer\KeyboardComponent.cs">
+      <Link>Demo\Computer\KeyboardComponent.cs</Link>
+    </Compile>
+
+    <Compile Include="..\..\Unity\Codes\Model\Demo\Computer\MonitorComponent.cs">
+      <Link>Demo\Computer\MonitorComponent.cs</Link>
+    </Compile>
+
+    <Compile Include="..\..\Unity\Codes\Model\Demo\Computer\MouseComponent.cs">
+      <Link>Demo\Computer\MouseComponent.cs</Link>
+    </Compile>
+
+    <Compile Include="..\..\Unity\Codes\Model\Demo\Computer\PCCaseComponent.cs">
+      <Link>Demo\Computer\PCCaseComponent.cs</Link>
+    </Compile>
+
     <Compile Include="..\..\Unity\Codes\Model\Demo\Unit\UnitType.cs">
       <Link>Demo\Unit\UnitType.cs</Link>
     </Compile>
