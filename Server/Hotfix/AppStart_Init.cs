@@ -10,7 +10,7 @@ namespace ET
             RunAsync(args).Coroutine();
         }
         
-        private async ETTask RunAsync(EventType.AppStart args)
+        private static async ETTask RunAsync(EventType.AppStart args)
         {
             Game.Scene.AddComponent<ConfigComponent>();
             await ConfigComponent.Instance.LoadAsync();

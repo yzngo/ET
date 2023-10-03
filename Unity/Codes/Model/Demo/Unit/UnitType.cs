@@ -4,6 +4,8 @@
     {
         Player = 1,
         Monster = 2,
-        NPC = 3,
+        Npc = 3,
+        DropItem = 4,
+        Box = 5,
     }
 }

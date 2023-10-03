@@ -2,6 +2,9 @@
 
 namespace ET
 {
+	/// <summary>
+	/// Unit 工厂辅助类
+	/// </summary>
     public static class UnitFactory
     {
         public static Unit Create(Scene currentScene, UnitInfo unitInfo)
@@ -41,6 +44,72 @@ namespace ET
 
 	        unit.AddComponent<XunLuoPathComponent>();
 	        
+	        Game.EventSystem.Publish(new EventType.AfterUnitCreate() {Unit = unit});
+            return unit;
+        }
+        
+        
+        /// <summary>
+        /// Player 工厂类
+        /// </summary>
+        /// <param name="currentScene"></param>
+        /// <param name="unitInfo"></param>
+        /// <returns></returns>
+        public static Unit CreatePlayer(Scene currentScene, UnitInfo unitInfo)
+        {
+	        UnitComponent unitComponent = currentScene.GetComponent<UnitComponent>();
+	        Unit unit = unitComponent.AddChildWithId<Unit, int>(unitInfo.UnitId, unitInfo.ConfigId);
+	        unit.UnitType = UnitType.Player;
+	        // Player 可以行走，添加 Move 组件
+	        unit.AddComponent<MoveComponent>();
+	        
+	        unitComponent.Add(unit);
+	        
+	        unit.Position = new Vector3(unitInfo.X, unitInfo.Y, unitInfo.Z);
+	        // 抛出事件，供 View 层使用
+	        Game.EventSystem.Publish(new EventType.AfterUnitCreate() {Unit = unit});
+            return unit;
+        }
+        
+        /// <summary>
+        /// NPC 工厂类
+        /// </summary>
+        /// <param name="currentScene"></param>
+        /// <param name="unitInfo"></param>
+        /// <returns></returns>
+        public static Unit CreateNpc(Scene currentScene, UnitInfo unitInfo)
+        {
+	        UnitComponent unitComponent = currentScene.GetComponent<UnitComponent>();
+	        Unit unit = unitComponent.AddChildWithId<Unit, int>(unitInfo.UnitId, unitInfo.ConfigId);
+	        unit.UnitType = UnitType.Npc;
+	        
+	        unitComponent.Add(unit);
+	        
+	        unit.Position = new Vector3(unitInfo.X, unitInfo.Y, unitInfo.Z);
+	        Game.EventSystem.Publish(new EventType.AfterUnitCreate() {Unit = unit});
+            return unit;
+        }
+        
+        /// <summary>
+        /// Monster 工厂类
+        /// </summary>
+        /// <param name="currentScene"></param>
+        /// <param name="unitInfo"></param>
+        /// <returns></returns>
+        public static Unit CreateMonster(Scene currentScene, UnitInfo unitInfo)
+        {
+	        UnitComponent unitComponent = currentScene.GetComponent<UnitComponent>();
+	        Unit unit = unitComponent.AddChildWithId<Unit, int>(unitInfo.UnitId, unitInfo.ConfigId);
+	        unit.UnitType = UnitType.Monster;
+			
+	        // Monster 可以行走，添加 Move 组件
+	        unit.AddComponent<MoveComponent>();
+	        // Monster 可以巡逻，添加 XunLuoPathComponent 组件
+	        unit.AddComponent<XunLuoPathComponent>();
+	        
+	        unitComponent.Add(unit);
+	        
+	        unit.Position = new Vector3(unitInfo.X, unitInfo.Y, unitInfo.Z);
 	        Game.EventSystem.Publish(new EventType.AfterUnitCreate() {Unit = unit});
             return unit;
         }
