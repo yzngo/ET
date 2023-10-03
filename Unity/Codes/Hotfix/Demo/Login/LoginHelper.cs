@@ -41,6 +41,31 @@ namespace ET
             {
                 Log.Error(e);
             }
-        } 
+        }
+
+        public static async ETTask LoginTest(Scene zoneScene, string address)
+        {
+            Session session = null;
+            try
+            {
+                session = zoneScene.GetComponent<NetKcpComponent>().Create(NetworkHelper.ToIPEndPoint(address));
+                R2C_LoginTest r2CLoginTest = (R2C_LoginTest) await session.Call(new C2R_LoginTest()
+                {
+                    Account = "TestAccount", 
+                    Password = "TestPassword"
+                });
+                Log.Debug(r2CLoginTest.Key);
+                session.Send(new C2R_SayHello() { Hello = "Hello Server"});
+                await TimerComponent.Instance.WaitAsync(2000);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+            }
+            finally
+            {
+                session?.Dispose();
+            }
+        }
     }
 }
