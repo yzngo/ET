@@ -6,6 +6,7 @@ namespace ET
     {
         protected override void Run(EventType.AfterUnitCreate args)
         {
+            args.Unit.UnitType = UnitType.Player;
             switch (args.Unit.UnitType) 
             {
                 case UnitType.Player:
